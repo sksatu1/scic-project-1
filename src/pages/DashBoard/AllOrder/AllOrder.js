@@ -22,9 +22,9 @@ const AllOrder = ({ orderInfo }) => {
 
     return (
         <Grid item xs={4} sm={8} md={6}>
-            <Card sx={{ height: '100%', textAlign: 'left' }}>
+            <Card sx={{ height: '60%', textAlign: 'left' }}>
                 <CardMedia
-                    // height="200px"
+                    height="40%"
                     // width='50%'
                     component="img"
                     image={product.img}

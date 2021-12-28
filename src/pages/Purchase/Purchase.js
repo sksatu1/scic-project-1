@@ -10,8 +10,6 @@ import NavBar from '../Shared/NavBar/NavBar';
 import Footer from '../Shared/Footer/Footer';
 import { useForm } from 'react-hook-form';
 import useAuth from '../../hooks/useAuth';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchSingleBook } from '../../redux/slices/bikeSlice';
 
 
 const ExpandMore = styled((props) => {
@@ -29,49 +27,47 @@ const ExpandMore = styled((props) => {
 const Purchase = () => {
     const { user } = useAuth();
     const { id } = useParams();
-    // const [order, setOrder] = useState({});
+    const [order, setOrder] = useState({});
 
     const { register, handleSubmit, formState: { errors } } = useForm();
 
-    const dispatch = useDispatch();
-    useEffect(() => {
-        // fetch(`https://shielded-savannah-24056.herokuapp.com/products/${id}`)
-        //     .then(res => res.json())
-        //     .then(data => setOrder(data))
 
-        dispatch(fetchSingleBook(id))
+    useEffect(() => {
+        fetch(`http://localhost:5000/books/${id}`)
+            .then(res => res.json())
+            .then(data => setOrder(data))
     }, [])
-    const order = useSelector((state)=>state.bikes.selectedBook)
+
     const onSubmit = data => {
         data.order = order;
         data.status = 'pending'
         console.log(data)
 
         // save to db ------------------
-    //     fetch('https://shielded-savannah-24056.herokuapp.com/orders', {
-    //         method: 'POST',
-    //         headers: {
-    //             'content-type': 'application/json'
-    //         },
-    //         body: JSON.stringify(data)
-    //     })
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             console.log(data.insertedId)
-    //             if (data.insertedId) {
-    //                 alert('Order Added .Please go to dashboard to check your order');
-    //                 window.location.reload();
-    //             }
-    //         })
+        fetch('http://localhost:5000/orders', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data.insertedId)
+                if (data.insertedId) {
+                    alert('Order Added .Please go to dashboard to check your order');
+                    window.location.reload();
+                }
+            })
 
 
-    // };
+    };
 
     // const [expanded, setExpanded] = React.useState(false);
 
     // const handleExpandClick = () => {
     //     setExpanded(!expanded);
-    };
+    // };
 
 
     return (
@@ -130,53 +126,6 @@ const Purchase = () => {
 
             <Footer></Footer>
         </Box>
-
-
-
-        // <Container sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '20px' }}>
-        //     <Card sx={{ maxWidth: 600 }}>
-
-        //         <CardMedia
-        //             component="img"
-        //             height="194"
-        //             image={order.img}
-        //             alt="Paella dish"
-        //         />
-        //         <CardContent>
-        //             <Typography variant="h6" color="text.secondary">
-        //                 {
-        //                     order.name
-        //                 }
-        //             </Typography>
-        //             <Typography variant="h6" color="text.secondary">
-        //                 {
-        //                     order.price
-        //                 }
-        //             </Typography>
-        //         </CardContent>
-        //         <CardActions disableSpacing>
-        //             <Button variant="contained">Contained</Button>
-        //             <ExpandMore
-        //                 expand={expanded}
-        //                 onClick={handleExpandClick}
-        //                 aria-expanded={expanded}
-        //                 aria-label="show more"
-        //             >
-        //                 <ExpandMoreIcon />
-        //             </ExpandMore>
-        //         </CardActions>
-        //         <Collapse in={expanded} timeout="auto" unmountOnExit>
-        //             <CardContent>
-        //                 <Typography paragraph>Description</Typography>
-        //                 <Typography paragraph>
-        //                     {
-        //                         order.description
-        //                     }
-        //                 </Typography>
-        //             </CardContent>
-        //         </Collapse>
-        //     </Card>
-        // </Container>
     );
 };
 

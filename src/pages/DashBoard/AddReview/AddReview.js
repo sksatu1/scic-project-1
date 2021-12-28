@@ -24,7 +24,7 @@ const AddReview = () => {
             rating
         }
 
-        fetch('https://shielded-savannah-24056.herokuapp.com/reviews', {
+        fetch('http://localhost:5000/reviews', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
