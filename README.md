@@ -1,4 +1,4 @@
-# Welcome to BD Bike Shop
+# Welcome to BD Book Shop
 
 Please visit our website here [https://bd-bike-shop.web.app/](https://bd-bike-shop.web.app/).
 

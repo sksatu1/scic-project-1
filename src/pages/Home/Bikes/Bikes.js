@@ -2,7 +2,7 @@ import { Container, Grid, Box, Typography, CircularProgress } from '@mui/materia
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-import { fetchBooks } from '../../../redux/slices/bikeSlice';
+import { fetchBooks } from '../../../redux/slices/bookSlice';
 import Bike from '../Bike/Bike';
 
 const Bikes = ({ slice }) => {

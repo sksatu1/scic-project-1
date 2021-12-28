@@ -20,7 +20,7 @@ export const fetchSingleBook = createAsyncThunk(
     }
 )
 
-export const bikeSlice = createSlice({
+export const bookSlice = createSlice({
     name: 'bikes',
     initialState: {
         allCollections: [],
@@ -54,6 +54,6 @@ export const bikeSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount } = bikeSlice.actions;
+export const { increment, decrement, incrementByAmount } = bookSlice.actions;
 
-export default bikeSlice.reducer;
+export default bookSlice.reducer;
