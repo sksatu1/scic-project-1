@@ -7,7 +7,7 @@ const AddProduct = () => {
     const history = useHistory();
 
     const onSubmit = data => {
-        fetch("https://shielded-savannah-24056.herokuapp.com/products", {
+        fetch("http://localhost:5000/books", {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -45,9 +45,9 @@ const AddProduct = () => {
             {/* form  */}
             <h1>Add a New Product</h1>
             <form style={inputFormStyle} onSubmit={handleSubmit(onSubmit)}>
-                <input style={inputFieldStyle} {...register("name", { required: true })} placeholder='Bike model name' />
+                <input style={inputFieldStyle} {...register("name", { required: true })} placeholder='Book name' />
 
-                <input style={inputFieldStyle} {...register("description", { required: true })} placeholder='Description' />
+                <input style={inputFieldStyle} {...register("author", { required: true })} placeholder='author' />
 
                 <input style={inputFieldStyle} {...register("price", { required: true })} placeholder='price' />
 

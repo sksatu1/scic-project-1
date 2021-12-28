@@ -4,22 +4,22 @@ import React, { useEffect, useState } from 'react';
 import ManageProduct from '../ManageProduct/ManageProduct';
 
 const ManageProducts = () => {
-    const [bikes, setBikes] = useState([]);
+    const [books, setBooks] = useState([]);
 
     useEffect(() => {
-        fetch('https://shielded-savannah-24056.herokuapp.com/products')
+        fetch('http://localhost:5000/books')
             .then(res => res.json())
-            .then(data => setBikes(data))
+            .then(data => setBooks(data))
     }, [])
     return (
         <Container>
-            <Typography sx={{ color: 'blue', fontWeight: '600' }} variant="h4">Our Top Bike Collections</Typography>
+            <Typography sx={{ color: 'blue', fontWeight: '600' }} variant="h4">Our Top Books Collections</Typography>
             <Box sx={{ flexGrow: 1 }}>
                 <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
                     {
-                        bikes.map(bike => <ManageProduct
-                            key={bike._id}
-                            bike={bike}
+                        books.map(book => <ManageProduct
+                            key={book._id}
+                            book={book}
                         ></ManageProduct>)
                     }
                 </Grid>

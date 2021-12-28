@@ -8,15 +8,15 @@ import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
 
 
-const ManageProduct = ({ bike }) => {
-    const { name, img, price, _id } = bike;
+const ManageProduct = ({ book }) => {
+    const { name, img, price, _id } = book;
 
     // delete --------------------------
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure you want to delete?')
 
         if (proceed) {
-            fetch(`https://shielded-savannah-24056.herokuapp.com/products/${_id}`, {
+            fetch(`http://localhost:5000/books/${_id}`, {
                 method: 'DELETE',
             })
                 .then(res => res.json())
