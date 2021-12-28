@@ -1,0 +1,19 @@
+.footer-container{ background-color: #212529;
+    padding: 10px;
+    color:white}
+
+.footer-container a{
+    color: white;
+}
+
+.footer{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+.footer-link{
+    text-decoration: none;
+    color: black;
+    padding: 5px;
+}
