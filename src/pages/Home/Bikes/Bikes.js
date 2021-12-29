@@ -14,14 +14,15 @@ const Bikes = ({ slice }) => {
     // .then(data => setBikes(data))
     // }, [])
 
+// using redux toolkit Start-----------------------
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(fetchBooks())
     }, [])
 
     const books = useSelector(state => state.bikes.allCollections)
+// using redux toolkit End-----------------------
 
-    console.log(books);
 
 
     return (

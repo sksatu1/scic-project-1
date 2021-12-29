@@ -34,7 +34,7 @@ const HomeAccordion = () => {
                             aria-controls="panel1bh-content"
                             id="panel1bh-header"
                         >
-                            <Typography sx={{ color: 'text.secondary' }} className="question-answer">What are the most important things I should know about riding bike?</Typography>
+                            <Typography sx={{ color: 'text.secondary' }} className="question-answer">What are the most important things I should know about reading books?</Typography>
                         </AccordionSummary>
                         <AccordionDetails>
                             <Typography className="question-answer">
@@ -65,7 +65,7 @@ const HomeAccordion = () => {
                             id="panel3bh-header"
                         >
                             <Typography sx={{ color: 'text.secondary' }} className="question-answer">
-                                My bike has been in storage. Is it safe to ride?
+                                My book has been in storage. Is it safe to ride?
                             </Typography>
                         </AccordionSummary>
                         <AccordionDetails>
@@ -80,7 +80,7 @@ const HomeAccordion = () => {
                             aria-controls="panel4bh-content"
                             id="panel4bh-header"
                         >
-                            <Typography sx={{ color: 'text.secondary' }} className="question-answer">What rules should I follow when riding bike?</Typography>
+                            <Typography sx={{ color: 'text.secondary' }} className="question-answer">What rules should I follow when reading books?</Typography>
                         </AccordionSummary>
                         <AccordionDetails>
                             <Typography className="question-answer">

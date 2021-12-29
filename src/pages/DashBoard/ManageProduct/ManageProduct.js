@@ -16,7 +16,7 @@ const ManageProduct = ({ book }) => {
         const proceed = window.confirm('Are you sure you want to delete?')
 
         if (proceed) {
-            fetch(`http://localhost:5000/books/${_id}`, {
+            fetch(`https://limitless-ridge-05457.herokuapp.com/books/${_id}`, {
                 method: 'DELETE',
             })
                 .then(res => res.json())

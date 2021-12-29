@@ -6,7 +6,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query'
 export const fetchBooks = createAsyncThunk(
     'books/fetchBooks',
     async () => {
-        const response = await fetch('http://localhost:5000/books').then(res => res.json())
+        const response = await fetch('https://limitless-ridge-05457.herokuapp.com/books').then(res => res.json())
         return response;
     }
 )
@@ -14,8 +14,25 @@ export const fetchBooks = createAsyncThunk(
 export const fetchSingleBook = createAsyncThunk(
     'singleBook/fetchSingleBook',
     async (id) => {
-        const response = await fetch(`http://localhost:5000/books/${id}`).then(res => res.json())
+        const response = await fetch(`https://limitless-ridge-05457.herokuapp.com/books/${id}`).then(res => res.json())
         console.log(response);
+        return response;
+    }
+)
+
+export const fetchReviews = createAsyncThunk(
+    'reviews/fetchReviews',
+    async () => {
+        const response = await fetch('https://limitless-ridge-05457.herokuapp.com/reviews').then(res => res.json())
+        console.log(response);
+        return response;
+    }
+)
+
+export const fetchOrders = createAsyncThunk(
+    'orders/fetchOrders',
+    async () => {
+        const response = await fetch('https://limitless-ridge-05457.herokuapp.com/orders').then(res => res.json())
         return response;
     }
 )
@@ -25,7 +42,8 @@ export const bookSlice = createSlice({
     initialState: {
         allCollections: [],
         selectedBook: [],
-        myOrders: [],
+        orders: [],
+        reviews: [],
     },
     reducers: {
         increment: (state) => {
@@ -45,9 +63,20 @@ export const bookSlice = createSlice({
             // Add user to the state array
             state.allCollections = action.payload;
         })
+
         builder.addCase(fetchSingleBook.fulfilled, (state, action) => {
             // Add user to the state array
             state.selectedBook = action.payload;
+        })
+
+        builder.addCase(fetchReviews.fulfilled, (state, action) => {
+            // Add user to the state array
+            state.reviews = action.payload;
+        })
+
+        builder.addCase(fetchOrders.fulfilled, (state, action) => {
+            // Add user to the state array
+            state.orders = action.payload;
         })
 
     },

@@ -7,7 +7,7 @@ const AddProduct = () => {
     const history = useHistory();
 
     const onSubmit = data => {
-        fetch("http://localhost:5000/books", {
+        fetch("https://limitless-ridge-05457.herokuapp.com/books", {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

@@ -13,7 +13,7 @@ const Footer = () => {
                 <hr />
                 <Box className="footer">
                     <Box>
-                        <h4>BD-BIKE-STORE</h4>
+                        <h4>BD-BOOK-STORE</h4>
                         <p><BsFillChatDotsFill /> Chat or Call 7 (465) 474-01-01</p>
                         <p><BsFillGeoAltFill /> Shooting Club, Gulshan-1, Dhaka</p>
                     </Box>

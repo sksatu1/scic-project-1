@@ -1,18 +1,31 @@
 import { Container, Grid, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import useAuth from '../../../hooks/useAuth';
+import { fetchOrders } from '../../../redux/slices/bookSlice';
 import AllOrder from '../AllOrder/AllOrder';
 import Order from '../Order/Order';
 
 const AllOrders = () => {
-    const [orders, setOrders] = useState([]);
+    // const [orders, setOrders] = useState([]);
 
+    // useEffect(() => {
+    //     fetch('https://limitless-ridge-05457.herokuapp.com/orders')
+    //         .then(res => res.json())
+    //         .then(data => setOrders(data))
+    // }, [])
+
+    // using redux toolkit Start-----------------------
+    const dispatch = useDispatch();
     useEffect(() => {
-        fetch('http://localhost:5000/orders')
-            .then(res => res.json())
-            .then(data => setOrders(data))
+        dispatch(fetchOrders())
     }, [])
+
+    const orders = useSelector(state => state.bikes.orders)
+
+    // using redux toolkit End-----------------------
+
     return (
         <Container>
             <Typography sx={{ color: 'blue', fontWeight: '600' }} variant="h4">Total Order : {orders.length}</Typography>
